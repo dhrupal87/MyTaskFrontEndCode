@@ -1,0 +1,40 @@
+<div style="text-align: right ; margin-right: 40px;">  
+  
+   
+  </div>  
+    
+  <div style="text-align: center ; margin-right: 40px;">  
+    
+    <h2>  <a (click)="getAdminData()" >All Task</a> <br> </h2>  
+      
+  </div>  
+  <div  style="text-align: center; padding-right: 53%;" >  
+    <textarea cols="30" rows="4" #taskDescription></textarea>
+    <h2>  <button (click)="addTask(taskDescription.value)" >Add Task</button> <br> </h2>  
+      
+  </div> 
+  <div *ngIf="haveData > 0 && dataRequest" style="text-align: center; padding-right: 53%;">  
+      <table class="table table-responsive table-striped" style="margin: 5%;">  
+     
+          <tr>  
+            <th>Task</th>  
+            <th>Approve</th>  
+            <th>Reject</th>  
+          </tr>  
+            
+          <ng-container *ngFor = "let item of data">  
+              <tr>  
+                <td>{{item.taskDescription}}</td>  
+                <td><button (click)="approveTask($event)" name= {{item.id}}>Approve</button></td>  
+                <td><button (click) = "rejectedTask($event)" name= {{item.id}}>Reject</button></td>  
+              </tr>  
+          </ng-container>  
+      
+        </table>  
+  </div>  
+    
+  <div *ngIf="haveData == 0 && dataRequest">  
+      Don't have task.  
+  </div> 
+  
+  
