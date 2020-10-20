@@ -40,7 +40,9 @@ export class ProfileComponent implements OnInit {
       this.AddTaskDetails.isApprove = false;
       this.AddTaskDetails.isRejected=false;
       this.AddTaskDetails.roles = localStorage.getItem("roles");
+      console.log(this.AddTaskDetails.email)
       this.AddTaskDetails.email=localStorage.getItem("email");
+      console.log(this.AddTaskDetails.email+ "email "+localStorage.getItem("email"))
     this.adminService.addTask(this.AddTaskDetails).subscribe(
       response => {
       
